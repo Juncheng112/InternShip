@@ -42,7 +42,7 @@ h1 {
   width: 100%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 72deg)) translateZ(850px); /* Keep image in focus */
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(700px); /* Distance between images */
 }
 
 .box span img {
@@ -53,8 +53,12 @@ h1 {
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  image-rendering: crisp-edges; /* Ensure sharper images */
-  image-rendering: optimizeQuality; /* For higher quality rendering */
+  image-rendering: auto;
+
+}
+
+.box span:nth-child(1) {
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(700px) scale(1.05); /* Slight scale for the front image */
 }
 
 @keyframes animate {
