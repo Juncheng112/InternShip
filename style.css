@@ -19,7 +19,7 @@ body {
 
 h1 {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   font-weight: 700;
@@ -29,8 +29,8 @@ h1 {
 
 .box {
   position: relative;
-  width: 600px; /* Box width */
-  height: 400px; /* Box height */
+  width: 500px; /* Box width */
+  height: 300px; /* Box height */
   transform-style: preserve-3d;
   animation: animate 20s linear infinite;
 }
