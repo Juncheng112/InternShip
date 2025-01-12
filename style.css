@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -18,24 +19,19 @@ body {
 
 h1 {
   position: absolute;
-  top: 25%;
+  bottom: 35%;
   left: 50%;
-  transform: translateX(-50%);
   color: #fff;
+  transform: translateX(-50%);
   font-weight: 700;
-  text-align: center;
 }
 
 .box {
   position: relative;
-  width: 602px; /* Match image width */
-  height: 339px; /* Match image height */
+  width: 600px; /* Reduced width */
+  height: 400px; /* Reduced height */
   transform-style: preserve-3d;
   animation: animate 20s linear infinite;
-
-  /* Scale to fit screen */
-  max-width: 80vw;
-  max-height: 45vh; /* Maintains aspect ratio */
 }
 
 .box span {
@@ -46,9 +42,7 @@ h1 {
   width: 100%;
   transform-origin: center;
   transform-style: preserve-3d;
-
-  /* Increased distance to 700px */
-  transform: rotateY(calc(var(--i) * 72deg)) translateZ(700px); /* TranslateZ increased */
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(500px); /* Reduced translateZ for a smaller distance */
 }
 
 .box span img {
@@ -57,15 +51,15 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 8px; /* Optional: Slight rounding of corners */
+  object-fit: contain; /* Ensures the aspect ratio is preserved */
+  border-radius: 8px; /* Optional: Rounded corners */
 }
 
 @keyframes animate {
   0% {
-    transform: perspective(1600px) rotateY(0deg); /* Adjusted perspective */
+    transform: perspective(1200px) rotateY(0deg); /* Adjusted perspective */
   }
   100% {
-    transform: perspective(1600px) rotateY(360deg); /* Adjusted perspective */
+    transform: perspective(1200px) rotateY(360deg); /* Complete rotation */
   }
 }
