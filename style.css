@@ -3,7 +3,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -15,21 +14,23 @@ body {
   align-items: center;
   min-height: 100vh;
   background: #000000;
+  color: #fff;
 }
 
 h1 {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
-  color: #fff;
   transform: translateX(-50%);
   font-weight: 700;
+  font-size: 2rem;
+  color: #fff;
 }
 
 .box {
   position: relative;
-  width: 600px; /* Reduced width */
-  height: 400px; /* Reduced height */
+  width: 600px; /* Box width */
+  height: 400px; /* Box height */
   transform-style: preserve-3d;
   animation: animate 20s linear infinite;
 }
@@ -42,7 +43,7 @@ h1 {
   width: 100%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 72deg)) translateZ(500px); /* Reduced translateZ for a smaller distance */
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(500px);
 }
 
 .box span img {
@@ -51,15 +52,44 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the aspect ratio is preserved */
-  border-radius: 8px; /* Optional: Rounded corners */
+  object-fit: contain; /* Maintain aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Glow effect */
+  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
+}
+
+/* Reflection */
+.box span img + .reflection {
+  position: absolute;
+  top: 100%; /* Directly below the image */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Mirror the image */
+  transform: scaleY(-1); /* Flip the reflection */
+  filter: blur(8px) opacity(0.3); /* Blur and reduce opacity */
+  transform-origin: top center;
+  z-index: -1;
+}
+
+/* Floor Glow */
+.box::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  z-index: 0;
 }
 
 @keyframes animate {
   0% {
-    transform: perspective(1000px) rotateY(0deg); /* Adjusted perspective */
+    transform: perspective(1000px) rotateY(0deg);
   }
   100% {
-    transform: perspective(1000px) rotateY(360deg); /* Complete rotation */
+    transform: perspective(1000px) rotateY(360deg);
   }
 }
