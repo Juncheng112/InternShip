@@ -57,9 +57,9 @@ h1 {
 
 @keyframes animate {
   0% {
-    transform: perspective(1200px) rotateY(0deg); /* Adjusted perspective */
+    transform: perspective(1000px) rotateY(0deg); /* Adjusted perspective */
   }
   100% {
-    transform: perspective(1200px) rotateY(360deg); /* Complete rotation */
+    transform: perspective(1000px) rotateY(360deg); /* Complete rotation */
   }
 }
