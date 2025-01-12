@@ -28,10 +28,14 @@ h1 {
 
 .box {
   position: relative;
-  width: 602px;
-  height: 339px;
+  width: 602px; /* Match image width */
+  height: 339px; /* Match image height */
   transform-style: preserve-3d;
   animation: animate 20s linear infinite;
+
+  /* Scale to fit screen */
+  max-width: 80vw;
+  max-height: 45vh; /* Maintains aspect ratio */
 }
 
 .box span {
@@ -42,7 +46,9 @@ h1 {
   width: 100%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 72deg)) translateZ(700px); /* Distance between images */
+
+  /* Increased distance to 700px */
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(700px); /* TranslateZ increased */
 }
 
 .box span img {
@@ -52,20 +58,14 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  image-rendering: auto;
-
-}
-
-.box span:nth-child(1) {
-  transform: rotateY(calc(var(--i) * 72deg)) translateZ(700px) scale(1.05); /* Slight scale for the front image */
+  border-radius: 8px; /* Optional: Slight rounding of corners */
 }
 
 @keyframes animate {
   0% {
-    transform: perspective(1600px) rotateY(0deg);
+    transform: perspective(1600px) rotateY(0deg); /* Adjusted perspective */
   }
   100% {
-    transform: perspective(1600px) rotateY(360deg);
+    transform: perspective(1600px) rotateY(360deg); /* Adjusted perspective */
   }
 }
